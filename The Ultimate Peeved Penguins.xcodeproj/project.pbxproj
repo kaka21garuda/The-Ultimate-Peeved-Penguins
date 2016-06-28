@@ -24,6 +24,7 @@
 		C6BF7F561D22F1BF00659F8E /* Seal.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F551D22F1BF00659F8E /* Seal.sks */; };
 		C6BF7F591D22F34C00659F8E /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F581D22F34C00659F8E /* MainScene.sks */; };
 		C6BF7F5B1D22F43100659F8E /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F5A1D22F43100659F8E /* MSButtonNode.swift */; };
+		C6BF7F5D1D22F61000659F8E /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F5C1D22F61000659F8E /* MainScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		C6BF7F551D22F1BF00659F8E /* Seal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Seal.sks; sourceTree = "<group>"; };
 		C6BF7F581D22F34C00659F8E /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		C6BF7F5A1D22F43100659F8E /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
+		C6BF7F5C1D22F61000659F8E /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				C6BF7F581D22F34C00659F8E /* MainScene.sks */,
 				C6BF7F1D1D22EC8900659F8E /* GameViewController.swift */,
 				C6BF7F5A1D22F43100659F8E /* MSButtonNode.swift */,
+				C6BF7F5C1D22F61000659F8E /* MainScene.swift */,
 				C6BF7F571D22F2AE00659F8E /* Animals */,
 				C6BF7F4D1D22EDA500659F8E /* CharacterActions.sks */,
 				C6BF7F161D22EC8900659F8E /* The Ultimate Peeved Penguins */,
@@ -304,6 +307,7 @@
 				C6BF7F1C1D22EC8900659F8E /* GameScene.swift in Sources */,
 				C6BF7F541D22F17200659F8E /* MSReferenceNode.swift in Sources */,
 				C6BF7F1E1D22EC8900659F8E /* GameViewController.swift in Sources */,
+				C6BF7F5D1D22F61000659F8E /* MainScene.swift in Sources */,
 				C6BF7F181D22EC8900659F8E /* AppDelegate.swift in Sources */,
 				C6BF7F5B1D22F43100659F8E /* MSButtonNode.swift in Sources */,
 			);
