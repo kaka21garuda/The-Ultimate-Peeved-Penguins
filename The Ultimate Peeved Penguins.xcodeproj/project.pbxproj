@@ -16,6 +16,12 @@
 		C6BF7F261D22EC8900659F8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F241D22EC8900659F8E /* LaunchScreen.storyboard */; };
 		C6BF7F311D22EC8900659F8E /* The_Ultimate_Peeved_PenguinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F301D22EC8900659F8E /* The_Ultimate_Peeved_PenguinsTests.swift */; };
 		C6BF7F3C1D22EC8900659F8E /* The_Ultimate_Peeved_PenguinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F3B1D22EC8900659F8E /* The_Ultimate_Peeved_PenguinsUITests.swift */; };
+		C6BF7F4A1D22EC9500659F8E /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F491D22EC9500659F8E /* assets.atlas */; };
+		C6BF7F4C1D22ECC600659F8E /* Bear.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F4B1D22ECC600659F8E /* Bear.sks */; };
+		C6BF7F4E1D22EDA500659F8E /* CharacterActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F4D1D22EDA500659F8E /* CharacterActions.sks */; };
+		C6BF7F521D22EEF900659F8E /* Penguin.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F511D22EEF900659F8E /* Penguin.sks */; };
+		C6BF7F541D22F17200659F8E /* MSReferenceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F531D22F17200659F8E /* MSReferenceNode.swift */; };
+		C6BF7F561D22F1BF00659F8E /* Seal.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F551D22F1BF00659F8E /* Seal.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		C6BF7F371D22EC8900659F8E /* The Ultimate Peeved PenguinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Ultimate Peeved PenguinsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BF7F3B1D22EC8900659F8E /* The_Ultimate_Peeved_PenguinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Ultimate_Peeved_PenguinsUITests.swift; sourceTree = "<group>"; };
 		C6BF7F3D1D22EC8900659F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6BF7F491D22EC9500659F8E /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
+		C6BF7F4B1D22ECC600659F8E /* Bear.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bear.sks; sourceTree = "<group>"; };
+		C6BF7F4D1D22EDA500659F8E /* CharacterActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterActions.sks; sourceTree = "<group>"; };
+		C6BF7F511D22EEF900659F8E /* Penguin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Penguin.sks; sourceTree = "<group>"; };
+		C6BF7F531D22F17200659F8E /* MSReferenceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSReferenceNode.swift; sourceTree = "<group>"; };
+		C6BF7F551D22F1BF00659F8E /* Seal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Seal.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,9 @@
 		C6BF7F0B1D22EC8900659F8E = {
 			isa = PBXGroup;
 			children = (
+				C6BF7F531D22F17200659F8E /* MSReferenceNode.swift */,
+				C6BF7F571D22F2AE00659F8E /* Animals */,
+				C6BF7F4D1D22EDA500659F8E /* CharacterActions.sks */,
 				C6BF7F161D22EC8900659F8E /* The Ultimate Peeved Penguins */,
 				C6BF7F2F1D22EC8900659F8E /* The Ultimate Peeved PenguinsTests */,
 				C6BF7F3A1D22EC8900659F8E /* The Ultimate Peeved PenguinsUITests */,
@@ -101,6 +116,7 @@
 		C6BF7F161D22EC8900659F8E /* The Ultimate Peeved Penguins */ = {
 			isa = PBXGroup;
 			children = (
+				C6BF7F491D22EC9500659F8E /* assets.atlas */,
 				C6BF7F171D22EC8900659F8E /* AppDelegate.swift */,
 				C6BF7F191D22EC8900659F8E /* GameScene.sks */,
 				C6BF7F1B1D22EC8900659F8E /* GameScene.swift */,
@@ -129,6 +145,16 @@
 				C6BF7F3D1D22EC8900659F8E /* Info.plist */,
 			);
 			path = "The Ultimate Peeved PenguinsUITests";
+			sourceTree = "<group>";
+		};
+		C6BF7F571D22F2AE00659F8E /* Animals */ = {
+			isa = PBXGroup;
+			children = (
+				C6BF7F511D22EEF900659F8E /* Penguin.sks */,
+				C6BF7F551D22F1BF00659F8E /* Seal.sks */,
+				C6BF7F4B1D22ECC600659F8E /* Bear.sks */,
+			);
+			name = Animals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,10 +261,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BF7F561D22F1BF00659F8E /* Seal.sks in Resources */,
+				C6BF7F521D22EEF900659F8E /* Penguin.sks in Resources */,
 				C6BF7F1A1D22EC8900659F8E /* GameScene.sks in Resources */,
 				C6BF7F261D22EC8900659F8E /* LaunchScreen.storyboard in Resources */,
 				C6BF7F231D22EC8900659F8E /* Assets.xcassets in Resources */,
+				C6BF7F4C1D22ECC600659F8E /* Bear.sks in Resources */,
+				C6BF7F4A1D22EC9500659F8E /* assets.atlas in Resources */,
 				C6BF7F211D22EC8900659F8E /* Main.storyboard in Resources */,
+				C6BF7F4E1D22EDA500659F8E /* CharacterActions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BF7F1C1D22EC8900659F8E /* GameScene.swift in Sources */,
+				C6BF7F541D22F17200659F8E /* MSReferenceNode.swift in Sources */,
 				C6BF7F1E1D22EC8900659F8E /* GameViewController.swift in Sources */,
 				C6BF7F181D22EC8900659F8E /* AppDelegate.swift in Sources */,
 			);
