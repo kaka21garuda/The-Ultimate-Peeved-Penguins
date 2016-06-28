@@ -37,6 +37,7 @@
 		C6BF7F741D23031D00659F8E /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F681D23031D00659F8E /* SKTEffects.swift */; };
 		C6BF7F751D23031D00659F8E /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F691D23031D00659F8E /* SKTTimingFunctions.swift */; };
 		C6BF7F761D23031D00659F8E /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F6A1D23031D00659F8E /* Vector3.swift */; };
+		C6BF7F791D23101400659F8E /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F781D23101400659F8E /* Level1.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		C6BF7F681D23031D00659F8E /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		C6BF7F691D23031D00659F8E /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		C6BF7F6A1D23031D00659F8E /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		C6BF7F781D23101400659F8E /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				C6BF7F1D1D22EC8900659F8E /* GameViewController.swift */,
 				C6BF7F5A1D22F43100659F8E /* MSButtonNode.swift */,
 				C6BF7F5C1D22F61000659F8E /* MainScene.swift */,
+				C6BF7F771D230FA700659F8E /* Levels */,
 				C6BF7F5E1D23031C00659F8E /* SKTUtils */,
 				C6BF7F571D22F2AE00659F8E /* Animals */,
 				C6BF7F4D1D22EDA500659F8E /* CharacterActions.sks */,
@@ -208,6 +211,14 @@
 				C6BF7F6A1D23031D00659F8E /* Vector3.swift */,
 			);
 			path = SKTUtils;
+			sourceTree = "<group>";
+		};
+		C6BF7F771D230FA700659F8E /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				C6BF7F781D23101400659F8E /* Level1.sks */,
+			);
+			name = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				C6BF7F561D22F1BF00659F8E /* Seal.sks in Resources */,
 				C6BF7F521D22EEF900659F8E /* Penguin.sks in Resources */,
 				C6BF7F1A1D22EC8900659F8E /* GameScene.sks in Resources */,
+				C6BF7F791D23101400659F8E /* Level1.sks in Resources */,
 				C6BF7F261D22EC8900659F8E /* LaunchScreen.storyboard in Resources */,
 				C6BF7F231D22EC8900659F8E /* Assets.xcassets in Resources */,
 				C6BF7F4C1D22ECC600659F8E /* Bear.sks in Resources */,
