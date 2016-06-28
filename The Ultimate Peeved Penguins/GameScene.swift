@@ -9,37 +9,38 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    /* Game object connections */
+    var catapultArm: SKSpriteNode!
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = ""
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
+        /* Set reference to catapultArm node */
+        catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+        /* Add a new penguin to the scene */
+        let resourcePath = NSBundle.mainBundle().pathForResource("Penguin", ofType: "sks")
+        let penguin = MSReferenceNode(URL: NSURL (fileURLWithPath: resourcePath!))
+        addChild(penguin)
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        /* Move penguin to the catapult bucket area */
+        penguin.avatar.position = catapultArm.position + CGPoint(x: 32, y: 50)
+        
+        /*
+         It would be nice to add a little impulse to the penguin. Imagine
+         the penguin is being hit by an invisible baseball bat.
+         */
+        //Impulse Vector
+        let launchDirection = CGVector(dx: 1, dy: 0)
+        let force = launchDirection * 280
+        
+        //Applying impulse to Penguin
+        penguin.avatar.physicsBody?.applyImpulse(force)
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
 }
