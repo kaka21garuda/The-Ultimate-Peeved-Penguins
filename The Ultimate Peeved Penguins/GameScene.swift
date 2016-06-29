@@ -47,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //load game scene
             let scene = GameScene(fileNamed: "GameScene") as! GameScene!
             //ensure correct aspect node
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             //let the game starts
             skView.presentScene(scene)
@@ -75,9 +75,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         catapultJointSpring.frequency = 1.5
         
     }
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Called when a touch begins */
+        
         
         /* There will only be one touch as multi touch is not enabled by default */
         for touch in touches {
@@ -129,7 +128,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
             /* Clamp camera scrolling to our visible scene area only */
             camera?.position.x.clamp(283, 677)
+            
+            /* Check penguin has come to rest */
+            if cameraTarget.physicsBody?.joints.count == 0 && cameraTarget.physicsBody?.velocity.length() < 0.18 {
+                
+                cameraTarget.removeFromParent()
+                
+                /* Reset catapult arm */
+                catapultArm.physicsBody?.velocity = CGVector(dx:0, dy:0)
+                catapultArm.physicsBody?.angularVelocity = 0
+                catapultArm.zRotation = 0
+                
+                /* Reset camera */
+                let cameraReset = SKAction.moveTo(CGPoint(x:284, y:camera!.position.y), duration: 1.5)
+                let cameraDelay = SKAction.waitForDuration(0.5)
+                let cameraSequence = SKAction.sequence([cameraDelay,cameraReset])
+                
+                camera?.runAction(cameraSequence)
+            }
         }
+        
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -166,13 +184,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     func dieSeal(node: SKNode) {
+        //load our particle effect
+        let particles = SKEmitterNode(fileNamed: "SealExplosion")!
+        particles.position = convertPoint(node.position, fromNode: node)
+        //Restrict total particles to reduce runtime of particle
+        particles.numParticlesToEmit = 25
+        //add particles to scene
+        addChild(particles)
+        
         //Seal Death
         //Create our Hero death action
         let sealDeath = SKAction.runBlock({
             //remove seal node from scene})
             node.removeFromParent()
     })
-   self.runAction(sealDeath)
+        self.runAction(sealDeath)
+        //play sfx
+        let sealSFX = SKAction.playSoundFileNamed("sfx_seal", waitForCompletion: false)
+        self.runAction(sealSFX)
+   
 }
 
 }

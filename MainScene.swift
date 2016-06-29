@@ -26,7 +26,7 @@ class MainScene: SKScene {
             //load game scene
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             //ensure correct aspect mode
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             /* Show debug
             skView.showsPhysics = true

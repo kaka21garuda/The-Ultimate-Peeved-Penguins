@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6ACDC411D2457C300EAEC77 /* SealExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6ACDC3F1D2457C300EAEC77 /* SealExplosion.sks */; };
+		C6ACDC421D2457C300EAEC77 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = C6ACDC401D2457C300EAEC77 /* spark.png */; };
+		C6ACDC441D245FC900EAEC77 /* sfx_seal.caf in Resources */ = {isa = PBXBuildFile; fileRef = C6ACDC431D245FC900EAEC77 /* sfx_seal.caf */; };
 		C6BF7F181D22EC8900659F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F171D22EC8900659F8E /* AppDelegate.swift */; };
 		C6BF7F1A1D22EC8900659F8E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6BF7F191D22EC8900659F8E /* GameScene.sks */; };
 		C6BF7F1C1D22EC8900659F8E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7F1B1D22EC8900659F8E /* GameScene.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6ACDC3F1D2457C300EAEC77 /* SealExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SealExplosion.sks; sourceTree = "<group>"; };
+		C6ACDC401D2457C300EAEC77 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		C6ACDC431D245FC900EAEC77 /* sfx_seal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_seal.caf; sourceTree = "<group>"; };
 		C6BF7F141D22EC8900659F8E /* The Ultimate Peeved Penguins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Ultimate Peeved Penguins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BF7F171D22EC8900659F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6BF7F191D22EC8900659F8E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = "The Ultimate Peeved Penguins/GameScene.sks"; sourceTree = "<group>"; };
@@ -125,12 +131,15 @@
 		C6BF7F0B1D22EC8900659F8E = {
 			isa = PBXGroup;
 			children = (
+				C6ACDC431D245FC900EAEC77 /* sfx_seal.caf */,
 				C6BF7F531D22F17200659F8E /* MSReferenceNode.swift */,
 				C6BF7F581D22F34C00659F8E /* MainScene.sks */,
 				C6BF7F1D1D22EC8900659F8E /* GameViewController.swift */,
 				C6BF7F5A1D22F43100659F8E /* MSButtonNode.swift */,
 				C6BF7F5C1D22F61000659F8E /* MainScene.swift */,
 				C6BF7F1B1D22EC8900659F8E /* GameScene.swift */,
+				C6ACDC3F1D2457C300EAEC77 /* SealExplosion.sks */,
+				C6ACDC401D2457C300EAEC77 /* spark.png */,
 				C6BF7F191D22EC8900659F8E /* GameScene.sks */,
 				C6BF7F771D230FA700659F8E /* Levels */,
 				C6BF7F5E1D23031C00659F8E /* SKTUtils */,
@@ -327,11 +336,14 @@
 			files = (
 				C6BF7F561D22F1BF00659F8E /* Seal.sks in Resources */,
 				C6BF7F521D22EEF900659F8E /* Penguin.sks in Resources */,
+				C6ACDC411D2457C300EAEC77 /* SealExplosion.sks in Resources */,
 				C6BF7F1A1D22EC8900659F8E /* GameScene.sks in Resources */,
 				C6BF7F791D23101400659F8E /* Level1.sks in Resources */,
+				C6ACDC421D2457C300EAEC77 /* spark.png in Resources */,
 				C6BF7F261D22EC8900659F8E /* LaunchScreen.storyboard in Resources */,
 				C6BF7F231D22EC8900659F8E /* Assets.xcassets in Resources */,
 				C6BF7F4C1D22ECC600659F8E /* Bear.sks in Resources */,
+				C6ACDC441D245FC900EAEC77 /* sfx_seal.caf in Resources */,
 				C6BF7F4A1D22EC9500659F8E /* assets.atlas in Resources */,
 				C6BF7F591D22F34C00659F8E /* MainScene.sks in Resources */,
 				C6BF7F211D22EC8900659F8E /* Main.storyboard in Resources */,
