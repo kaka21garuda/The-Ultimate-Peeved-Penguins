@@ -16,6 +16,10 @@ class GameScene: SKScene {
     var levelNode: SKNode!
     var buttonRestart : MSButtonNode!
     var cantileverNode: SKSpriteNode!
+    var touchNode: SKSpriteNode!
+    //physics helper
+    var touchJoint: SKPhysicsJointSpring?
+    
     
     //camera helpers
     var cameraTarget: SKNode!
@@ -27,6 +31,7 @@ class GameScene: SKScene {
         levelNode = childNodeWithName("//levelNode")
         buttonRestart = childNodeWithName("//buttonRestart") as! MSButtonNode
         cantileverNode = childNodeWithName("cantileverNode") as! SKSpriteNode
+        touchNode = childNodeWithName("touchNode") as! SKSpriteNode
         
         /* Load Level 1 */
         let resourcePath = NSBundle.mainBundle().pathForResource("Level1", ofType: "sks")
@@ -69,30 +74,29 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Add a new penguin to the scene */
-        let resourcePath = NSBundle.mainBundle().pathForResource("Penguin", ofType: "sks")
-        let penguin = MSReferenceNode(URL: NSURL (fileURLWithPath: resourcePath!))
-        addChild(penguin)
+        /* Called when a touch begins */
         
-        /* Move penguin to the catapult bucket area */
-        penguin.avatar.position = catapultArm.position + CGPoint(x: 32, y: 50)
-        
-        /*
-         It would be nice to add a little impulse to the penguin. Imagine
-         the penguin is being hit by an invisible baseball bat.
-         */
-        //Impulse Vector
-        let launchDirection = CGVector(dx: 1, dy: 0)
-        let force = launchDirection * 280
-        
-        //Applying impulse to Penguin
-        penguin.avatar.physicsBody?.applyImpulse(force)
-        
-        //ask the camera to follow penguins
-        cameraTarget = penguin.avatar
-        /*
-         Now that you have a target for the camera, you need to update the camera's position to follow the target.
-         */
+        /* There will only be one touch as multi touch is not enabled by default */
+        for touch in touches {
+            
+            /* Grab scene position of touch */
+            let location    = touch.locationInNode(self)
+            
+            /* Get node reference if we're touching a node */
+            let touchedNode = nodeAtPoint(location)
+            
+            /* Is it the catapult arm? */
+            if touchedNode.name == "catapultArm" {
+                
+                /* Reset touch node position */
+                touchNode.position = location
+                
+                /* Spring joint touch node and catapult arm */
+                touchJoint = SKPhysicsJointSpring.jointWithBodyA(touchNode.physicsBody!, bodyB: catapultArm.physicsBody!, anchorA: location, anchorB: location)
+                physicsWorld.addJoint(touchJoint!)
+                
+            }
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -100,11 +104,26 @@ class GameScene: SKScene {
         
         //Checked wether we have a valid camera target to follow or not
         if let cameraTarget = cameraTarget {
-            /* Set camera position to follow target horizontally, keep vertical locked */
+            /* Set camera position to follow target horizontally, keep ve
+             rtical locked */
             camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
             /* Clamp camera scrolling to our visible scene area only */
             camera?.position.x.clamp(283, 677)
         }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //called when touches are moving
+        //There'll be only one touch because multi touch is not allowed by default
+        for touch in touches {
+            //Grab scene position of touch and update touchNode position
+            let location = touch.locationInNode(self)
+            touchNode.position = location
+        }
+    }
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //called when touch is ended
+        if let touchJoint = touchJoint {physicsWorld.removeJoint(touchJoint)}
     }
     
 }

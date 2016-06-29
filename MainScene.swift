@@ -22,9 +22,9 @@ class MainScene: SKScene {
         //Set up Restart button with selection handler
         buttonPlay.selectedHandler = {
             //Grab reference to our SpriteKit view
-            let skView = self.view as! SKView!
+            let skView = self.view as SKView!
             //load game scene
-            let scene = GameScene(fileNamed:"GameScene") as! GameScene!
+            let scene = GameScene(fileNamed:"GameScene") as GameScene!
             //ensure correct aspect mode
             scene.scaleMode = .AspectFill
             
