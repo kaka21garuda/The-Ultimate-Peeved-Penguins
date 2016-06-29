@@ -12,8 +12,10 @@ class GameScene: SKScene {
     
     /* Game object connections */
     var catapultArm: SKSpriteNode!
+    var catapult: SKSpriteNode!
     var levelNode: SKNode!
     var buttonRestart : MSButtonNode!
+    var cantileverNode: SKSpriteNode!
     
     //camera helpers
     var cameraTarget: SKNode!
@@ -21,8 +23,10 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
+        catapult = childNodeWithName("catapult") as! SKSpriteNode
         levelNode = childNodeWithName("//levelNode")
         buttonRestart = childNodeWithName("//buttonRestart") as! MSButtonNode
+        cantileverNode = childNodeWithName("cantileverNode") as! SKSpriteNode
         
         /* Load Level 1 */
         let resourcePath = NSBundle.mainBundle().pathForResource("Level1", ofType: "sks")
@@ -41,6 +45,27 @@ class GameScene: SKScene {
             skView.presentScene(scene)
         
         }
+        //create catapult catapultArmBody physical body of type alpha
+        let catapultArmBody = SKPhysicsBody(texture: catapultArm!.texture!, size: catapultArm!.size)
+        //sets mass
+        catapultArmBody.mass = 0.5
+        //affected by gravity
+        catapultArmBody.affectedByGravity = true
+        //improves physics collision
+        catapultArmBody.usesPreciseCollisionDetection = true
+        //Assigns the physics body to the catapult arm
+        catapultArm.physicsBody = catapultArmBody
+        
+        /* Pin joint catapult and catapult arm */
+        let catapultPinJoint = SKPhysicsJointPin.jointWithBodyA(catapult.physicsBody!, bodyB: catapultArm.physicsBody!, anchor: CGPoint(x:220 ,y:105))
+        physicsWorld.addJoint(catapultPinJoint)
+        //Spring join catapult arm and cantilever node
+        /* Spring joint catapult arm and cantilever node */
+        let catapultJointSpring = SKPhysicsJointSpring.jointWithBodyA(catapultArm.physicsBody!, bodyB: cantileverNode.physicsBody!, anchorA: catapultArm.position + CGPoint(x:15, y:30), anchorB: cantileverNode.position)
+        physicsWorld.addJoint(catapultJointSpring)
+        
+        catapultJointSpring.frequency = 1.5
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
