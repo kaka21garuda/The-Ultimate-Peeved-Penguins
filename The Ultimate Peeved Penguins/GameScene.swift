@@ -19,6 +19,8 @@ class GameScene: SKScene {
     var touchNode: SKSpriteNode!
     //physics helper
     var touchJoint: SKPhysicsJointSpring?
+    //pining the penguin
+    var penguinJoint: SKPhysicsJointPin?
     
     
     //camera helpers
@@ -97,6 +99,23 @@ class GameScene: SKScene {
                 
             }
         }
+        /* Add a new penguin to the scene */
+        let resourcePath = NSBundle.mainBundle().pathForResource("Penguin", ofType: "sks")
+        let penguin = MSReferenceNode(URL: NSURL (fileURLWithPath: resourcePath!))
+        addChild(penguin)
+        
+        /* Position penguin in the catapult bucket area */
+        penguin.avatar.position = catapultArm.position + CGPoint(x: 32, y: 50)
+        
+        /* Improves physics collision handling of fast moving objects */
+        penguin.avatar.physicsBody?.usesPreciseCollisionDetection = true
+        
+        /* Setup pin joint between penguin and catapult arm */
+        penguinJoint = SKPhysicsJointPin.jointWithBodyA(catapultArm.physicsBody!, bodyB: penguin.avatar.physicsBody!, anchor: penguin.avatar.position)
+        physicsWorld.addJoint(penguinJoint!)
+        
+        /* Set camera to follow penguin */
+        cameraTarget = penguin.avatar
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -124,6 +143,7 @@ class GameScene: SKScene {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //called when touch is ended
         if let touchJoint = touchJoint {physicsWorld.removeJoint(touchJoint)}
+        if let penguinJoint = penguinJoint {physicsWorld.removeJoint(penguinJoint)}
     }
     
 }
