@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /* Game object connections */
     var catapultArm: SKSpriteNode!
@@ -27,6 +27,7 @@ class GameScene: SKScene {
     var cameraTarget: SKNode!
     
     override func didMoveToView(view: SKView) {
+        physicsWorld.contactDelegate = self
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
         catapult = childNodeWithName("catapult") as! SKSpriteNode
@@ -57,7 +58,7 @@ class GameScene: SKScene {
         //sets mass
         catapultArmBody.mass = 0.5
         //affected by gravity
-        catapultArmBody.affectedByGravity = true
+        catapultArmBody.affectedByGravity = false
         //improves physics collision
         catapultArmBody.usesPreciseCollisionDetection = true
         //Assigns the physics body to the catapult arm
@@ -145,5 +146,33 @@ class GameScene: SKScene {
         if let touchJoint = touchJoint {physicsWorld.removeJoint(touchJoint)}
         if let penguinJoint = penguinJoint {physicsWorld.removeJoint(penguinJoint)}
     }
-    
+    func didBeginContact(contact: SKPhysicsContact) {
+        //physics contact delegation
+        //Get reference to the bodies involved collision
+        let contactA: SKPhysicsBody = contact.bodyA
+        let contactB: SKPhysicsBody = contact.bodyB
+        
+        //Get reference to the physics body parent SKSpriteNode
+        let nodeA = contactA.node as! SKSpriteNode
+        let nodeB = contactB.node as! SKSpriteNode
+        
+        if contactA.categoryBitMask == 2 || contactB.categoryBitMask == 2 {
+            //was the collision more than a gentle nudge?
+            if contact.collisionImpulse > 2.0 {
+                //kill seals
+                if contactA.categoryBitMask == 2 { dieSeal(nodeA) }
+                if contactB.categoryBitMask == 2 { dieSeal(nodeB)}
+            }
+        }
+    }
+    func dieSeal(node: SKNode) {
+        //Seal Death
+        //Create our Hero death action
+        let sealDeath = SKAction.runBlock({
+            //remove seal node from scene})
+            node.removeFromParent()
+    })
+   self.runAction(sealDeath)
+}
+
 }
