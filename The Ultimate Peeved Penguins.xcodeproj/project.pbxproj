@@ -61,7 +61,7 @@
 		C6BF7F141D22EC8900659F8E /* The Ultimate Peeved Penguins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Ultimate Peeved Penguins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BF7F171D22EC8900659F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6BF7F191D22EC8900659F8E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		C6BF7F1B1D22EC8900659F8E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C6BF7F1B1D22EC8900659F8E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = "The Ultimate Peeved Penguins/GameScene.swift"; sourceTree = "<group>"; };
 		C6BF7F1D1D22EC8900659F8E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = "The Ultimate Peeved Penguins/GameViewController.swift"; sourceTree = "<group>"; };
 		C6BF7F201D22EC8900659F8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6BF7F221D22EC8900659F8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 				C6BF7F1D1D22EC8900659F8E /* GameViewController.swift */,
 				C6BF7F5A1D22F43100659F8E /* MSButtonNode.swift */,
 				C6BF7F5C1D22F61000659F8E /* MainScene.swift */,
+				C6BF7F1B1D22EC8900659F8E /* GameScene.swift */,
 				C6BF7F771D230FA700659F8E /* Levels */,
 				C6BF7F5E1D23031C00659F8E /* SKTUtils */,
 				C6BF7F571D22F2AE00659F8E /* Animals */,
@@ -157,7 +158,6 @@
 				C6BF7F491D22EC9500659F8E /* assets.atlas */,
 				C6BF7F171D22EC8900659F8E /* AppDelegate.swift */,
 				C6BF7F191D22EC8900659F8E /* GameScene.sks */,
-				C6BF7F1B1D22EC8900659F8E /* GameScene.swift */,
 				C6BF7F1F1D22EC8900659F8E /* Main.storyboard */,
 				C6BF7F221D22EC8900659F8E /* Assets.xcassets */,
 				C6BF7F241D22EC8900659F8E /* LaunchScreen.storyboard */,

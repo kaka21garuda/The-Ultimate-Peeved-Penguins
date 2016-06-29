@@ -13,6 +13,7 @@ class GameScene: SKScene {
     /* Game object connections */
     var catapultArm: SKSpriteNode!
     var levelNode: SKNode!
+    var buttonRestart : MSButtonNode!
     
     //camera helpers
     var cameraTarget: SKNode!
@@ -21,11 +22,25 @@ class GameScene: SKScene {
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
         levelNode = childNodeWithName("//levelNode")
+        buttonRestart = childNodeWithName("//buttonRestart") as! MSButtonNode
         
         /* Load Level 1 */
         let resourcePath = NSBundle.mainBundle().pathForResource("Level1", ofType: "sks")
         let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
         levelNode.addChild(newLevel)
+        buttonRestart.selectedHandler = {
+            
+            //reference for our spritekit view
+            let skView = self.view as! SKView!
+            //load game scene
+            let scene = GameScene(fileNamed: "GameScene") as! GameScene!
+            //ensure correct aspect node
+            scene.scaleMode = .AspectFill
+            
+            //let the game starts
+            skView.presentScene(scene)
+        
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -62,6 +77,8 @@ class GameScene: SKScene {
         if let cameraTarget = cameraTarget {
             /* Set camera position to follow target horizontally, keep vertical locked */
             camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
+            /* Clamp camera scrolling to our visible scene area only */
+            camera?.position.x.clamp(283, 677)
         }
     }
     
